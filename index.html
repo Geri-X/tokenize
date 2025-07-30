@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Безкоштовна токенізація активів RWA — залучення капіталу</title>
-    <meta name="description" content="Токенізуйте реальні активи безкоштовно. Наша AI-платформа оцінює бізнес і за секунди генерує смарт-контракт для швидкого залучення інвестицій.">
-    <meta name="keywords" content="токенізація активів, безкоштовна токенізація, токенізація RWA, залучення капіталу, AI платформа, смарт контракт, альтернативне фінансування, tokenize assets">
+    <title>Безкоштовна токенізація активів RWA — TokenSnap</title>
+    <meta name="description" content="Токенізуйте реальні активи безкоштовно. Наша AI-платформа TokenSnap оцінює бізнес і за секунди генерує смарт-контракт для швидкого залучення інвестицій.">
+    <meta name="keywords" content="токенізація активів, безкоштовна токенізація, токенізація RWA, залучення капіталу, AI платформа, смарт контракт, альтернативне фінансування, tokensnap, tokenize assets">
 
-    <link rel="canonical" href="https://example.com/"> <meta property="og:title" content="Безкоштовна токенізація активів RWA — залучення капіталу">
-    <meta property="og:description" content="Токенізуйте реальні активи безкоштовно з нашою AI-платформою.">
+    <link rel="canonical" href="https://example.com/">
+    <meta property="og:title" content="Безкоштовна токенізація активів RWA — TokenSnap">
+    <meta property="og:description" content="Токенізуйте реальні активи безкоштовно з нашою AI-платформою TokenSnap.">
+  
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://example.com/"> <style>
+    <meta property="og:url" content="https://TokenSnap.io/">
+    <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
-
         :root {
             --primary-blue: #007BFF;
             --dark-blue: #0A192F;
@@ -77,7 +79,6 @@
         h4 { font-size: 1.2rem; margin-bottom: 15px; }
         p { font-size: 1.1rem; font-weight: 300; line-height: 1.7; }
         
-        /* FIX: H2 Spacing */
         .section-subtitle {
             text-align: center;
             font-size: 1.2rem;
@@ -137,7 +138,7 @@
         .navbar { position: fixed; top: 0; left: 0; width: 100%; background: rgba(2, 12, 27, 0.85); backdrop-filter: blur(10px); z-index: 1000; padding-top: 15px; padding-bottom: 15px; }
         .navbar .container { display: flex; justify-content: space-between; align-items: center; }
         .nav-logo { color: var(--text-light); font-size: 1.8rem; font-weight: 900; text-decoration: none; z-index: 1006; }
-        .nav-menu { list-style: none; display: flex; gap: 25px; align-items: center; margin: 0; padding: 0; }
+        .nav-menu { list-style: none; display: flex; gap: 20px; align-items: center; margin: 0; padding: 0; }
         .nav-item a { color: var(--text-light); text-decoration: none; font-weight: 700; font-size: 0.9rem; transition: color 0.3s ease; }
         .nav-item a:not(.btn):hover { color: var(--primary-blue); }
         .nav-item .btn { padding: 10px 20px; font-size: 0.9rem; }
@@ -146,8 +147,14 @@
         .hero { background: var(--background-dark); color: var(--text-light); min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; padding: 80px 0; }
         .hero-content { position: relative; z-index: 1; width: 100%; }
         .hero .sub-headline { font-size: 1.5rem; max-width: 800px; margin: 0 auto 2.5rem; font-weight: 300; opacity: 0.9; }
-        .hero .sub-headline strong { color: var(--highlight-yellow); font-weight: 600; }
         .hero-actions { display: flex; justify-content: center; gap: 16px; margin-top: 40px; }
+        
+        /* --- "Why Us" Section --- */
+        .why-us-item { display: flex; align-items: flex-start; gap: 25px; }
+        .why-us-icon { flex-shrink: 0; height: 50px; width: 50px; background-color: rgba(0, 123, 255, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+        .why-us-icon svg { width: 28px; height: 28px; color: var(--primary-blue); }
+        .why-us-content h3 { margin-top: 0; margin-bottom: 10px; font-size: 1.4rem; }
+        .why-us-content p { margin-bottom: 0; color: #555; }
 
         /* --- Quiz Modal --- */
         .quiz-modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(8px); z-index: 9999; display: none; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease; padding: 10px; }
@@ -261,22 +268,71 @@
         .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.9rem; }
 
         /* --- Responsive Design --- */
-        @media (max-width: 992px) {
-            .hero { padding-bottom: 60px; }
-            .nav-menu { display: none; }
-            .nav-menu.active { display: flex; position: fixed; left: 0; top: 0; height: 100%; width: 100%; flex-direction: column; background-color: var(--background-dark); text-align: center; gap: 0; justify-content: center; padding: 20px; z-index: 1000; animation: fadeIn 0.3s forwards; }
-            .nav-menu.active.closing { animation: fadeOut 0.3s forwards; }
-            @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-            @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
-            .hamburger { display: block; }
-            .nav-item { padding: 1.5rem 0; width: 100%; border-bottom: 1px solid rgba(255,255,255,0.1); }
-            .nav-item:last-child { border-bottom: none; }
-            .hamburger.active .bar { background-color: var(--text-light); }
-            .hamburger.active .bar:nth-child(2) { opacity: 0; }
-            .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-            .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-            .grid-2 { grid-template-columns: 1fr; }
+                 @media (max-width: 992px) {
+            .hero { padding-bottom: 60px;
+            }
+            .nav-menu { display: none;
+            }
+            .nav-menu.active { 
+                display: flex; 
+                position: fixed; 
+                left: 0;
+                top: 0; 
+                height: 100%; 
+                width: 100%; 
+                flex-direction: column; 
+                background: #020c1b;           /* ПРИМУСОВИЙ 100% НЕПРОЗОРИЙ ФОН */
+                z-index: 1001;                     /* Гарантовано вище за інші елементи */
+                text-align: center; 
+                gap: 0; 
+                justify-content: center; 
+                padding: 20px; 
+                animation: fadeIn 0.3s forwards; 
+            }
+            .nav-menu.active.closing { animation: fadeOut 0.3s forwards;
+            }
+            @keyframes fadeIn { from { opacity: 0;
+            } to { opacity: 1; } }
+            @keyframes fadeOut { from { opacity: 1;
+            } to { opacity: 0; } }
+            .hamburger { display: block;
+            }
+            .nav-item { 
+                width: 100%;
+                border-bottom: 1px solid rgba(255,255,255,0.1); 
+            }
+            .nav-menu.active .nav-item a {
+                display: block;
+                padding: 1.2rem 1rem;
+                color: var(--text-light);
+                font-size: 1.1rem;
+                font-weight: 600;
+            }
+            .nav-menu.active .nav-item a.btn {
+                background: var(--primary-blue);
+                color: var(--text-light);
+                margin: 1rem auto 0;
+                width: 80%;
+                padding: 1rem;
+                border-radius: 8px;
+            }
+            .nav-item:last-child { border-bottom: none;
+            }
+            .hamburger.active .bar { background-color: var(--text-light);
+            }
+            .hamburger.active .bar:nth-child(2) { opacity: 0;
+            }
+            .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg);
+            }
+            .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg);
+            }
+            .grid-2 { grid-template-columns: 1fr;
+            }
         }
+
+
+          
+        
 
         @media (max-width: 768px) {
             h1 { font-size: 3rem; }
@@ -305,11 +361,11 @@
       "@context": "https://schema.org",
       "@type": "Service",
       "name": "Безкоштовна токенізація активів RWA",
-      "description": "Токенізуйте реальні активи безкоштовно. Наша AI-платформа оцінює бізнес і за секунди генерує смарт-контракт для швидкого залучення інвестицій.",
+      "description": "Токенізуйте реальні активи безкоштовно. Наша AI-платформа TokenSnap оцінює бізнес і за секунди генерує смарт-контракт для швидкого залучення інвестицій.",
       "provider": {
         "@type": "Organization",
-        "name": "Tokenize"
-      },
+        "name": "TokenSnap"
+       },
       "serviceType": "Фінансові послуги",
       "areaServed": {
         "@type": "Country",
@@ -324,7 +380,7 @@
     </script>
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
+       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [{
         "@type": "Question",
@@ -356,13 +412,13 @@
 
     <nav class="navbar">
         <div class="container">
-            <a href="#" class="nav-logo">Tokenize</a>
+            <a href="#home" class="nav-logo">TokenSnap</a>
             <ul class="nav-menu">
+                <li class="nav-item"><a href="#why-us">Ваші переваги</a></li>
                 <li class="nav-item"><a href="#how-it-works">Як це працює</a></li>
-                <li class="nav-item"><a href="#problem">Проблема та Рішення</a></li> <li class="nav-item"><a href="#assets">Активи</a></li>
+                <li class="nav-item"><a href="#assets">Активи</a></li>
                 <li class="nav-item"><a href="#mission">Наша місія</a></li>
                 <li class="nav-item"><a href="#cases">Кейси</a></li>
-                <li class="nav-item"><a href="#pricing">Цінність</a></li>
                 <li class="nav-item"><a href="#faq">FAQ</a></li>
                 <li class="nav-item"><a href="#" class="btn quiz-trigger">Розпочати</a></li>
             </ul>
@@ -377,8 +433,8 @@
     <header class="hero" id="home">
         <div class="container">
             <div class="hero-content">
-                <h1>Токенізуйте ваш реальний актив. Безкоштовно.</h1>
-                <p class="sub-headline">Наш AI перетворює ваш актив на цифровий токен з токеномікою експертного рівня. <strong>Жодних комісій. Жодних прихованих платежів.</strong> Ми заробляємо, лише коли заробляєте ви, отримуючи комісію у розмірі 3% від випущених токенів.</p>
+                <h1>Токенізація реальних активів за один клік</h1>
+                <p class="sub-headline">Наша AI-платформа перетворює ваш бізнес на ліквідний цифровий актив. Швидко, законно та без жодних авансових платежів.</p>
                 <div class="hero-actions">
                     <a href="#" class="btn btn-hero quiz-trigger">
                         <span>Пройти 1-хвилинний квіз</span>
@@ -390,6 +446,58 @@
             </div>
         </div>
     </header>
+
+    <section class="why-us" id="why-us">
+        <div class="container">
+            <h2>Ваші переваги з першого дня</h2>
+            <div class="grid-2" style="gap: 50px;">
+                <div class="why-us-item">
+                     <div class="why-us-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
+                        </svg>
+                    </div>
+                    <div class="why-us-content">
+                        <h3>Швидко та автоматично</h3>
+                        <p>Наш AI-агент оцінює ваш актив і генерує смарт-контракт з пакетом документів за лічені хвилини, що відповідають вимогам MiCA та законодавства України. Запуск токена займає до 10 хвилин.</p>
+                    </div>
+                </div>
+                <div class="why-us-item">
+                    <div class="why-us-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.826-2.25-2.226-2.25-3.659v-.504a2.25 2.25 0 0 1 3-1.732Z" />
+                        </svg>
+                    </div>
+                    <div class="why-us-content">
+                        <h3>Без авансових платежів</h3>
+                        <p>Ми працюємо за моделлю «комісії з емісії» та беремо лише 3% від нових токенів після їх успішного випуску. Ви не витрачаєте власні кошти – наша комісія не зменшує вартість вашого активу.</p>
+                    </div>
+                </div>
+                <div class="why-us-item">
+                    <div class="why-us-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+                        </svg>
+                    </div>
+                    <div class="why-us-content">
+                        <h3>Підтримка ліквідності</h3>
+                        <p>Після токенізації ми допоможемо, щоб ваші токени працювали. За потреби підключимо партнерського маркет-мейкера або надамо інструкцію, як забезпечити ліквідність самостійно.</p>
+                    </div>
+                </div>
+                <div class="why-us-item">
+                    <div class="why-us-icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                    </div>
+                    <div class="why-us-content">
+                        <h3>Перевірене рішення</h3>
+                        <p>Нам довіряють підприємці з різних галузей. Ми вже допомогли токенізувати 120+ активів – від нерухомості до агробізнесу, що підтверджує надійність нашої платформи.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="social-proof">
         <div class="container">
@@ -462,75 +570,39 @@
             <p class="section-subtitle">Перетворіть практично будь-який цінний актив на ліквідний інвестиційний інструмент, доступний усьому світу.</p>
             <div class="asset-grid">
                 <div class="asset-item">
-                    <div class="asset-icon-wrapper">
-                        <svg class="asset-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
-                        </svg>
-                    </div>
+                    <div class="asset-icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" /></svg></div>
                     <h3>Нерухомість</h3>
                 </div>
                 <div class="asset-item">
-                    <div class="asset-icon-wrapper">
-                        <svg class="asset-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                           <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h12A2.25 2.25 0 0 0 20.25 14.25V3M3.75 21h16.5M16.5 3.75h.008v.008H16.5V3.75Z" />
-                        </svg>
-                    </div>
+                    <div class="asset-icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h12A2.25 2.25 0 0 0 20.25 14.25V3M3.75 21h16.5M16.5 3.75h.008v.008H16.5V3.75Z" /></svg></div>
                     <h3>Приватний капітал</h3>
                 </div>
                 <div class="asset-item">
-                    <div class="asset-icon-wrapper">
-                        <svg class="asset-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9.75 14.25 12m0 0 2.25 2.25M14.25 12l2.25-2.25M14.25 12 12 14.25m-2.58-4.82 2.58 2.57m0 0 2.58 2.57m-2.58-2.57-2.58 2.57m2.58-2.57-2.58-2.57m6.42-3.67L12 12l-1.88-1.88a1.88 1.88 0 0 0-2.65 0L6 11.62a1.88 1.88 0 0 0 0 2.65L8.38 16.5a1.88 1.88 0 0 0 2.65 0L12 15.12l1.88 1.88a1.88 1.88 0 0 0 2.65 0L18 14.27a1.88 1.88 0 0 0 0-2.65l-1.47-1.47a1.88 1.88 0 0 0-2.65 0Z" />
-                        </svg>
-                    </div>
+                    <div class="asset-icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9.75 14.25 12m0 0 2.25 2.25M14.25 12l2.25-2.25M14.25 12 12 14.25m-2.58-4.82 2.58 2.57m0 0 2.58 2.57m-2.58-2.57-2.58 2.57m2.58-2.57-2.58-2.57m6.42-3.67L12 12l-1.88-1.88a1.88 1.88 0 0 0-2.65 0L6 11.62a1.88 1.88 0 0 0 0 2.65L8.38 16.5a1.88 1.88 0 0 0 2.65 0L12 15.12l1.88 1.88a1.88 1.88 0 0 0 2.65 0L18 14.27a1.88 1.88 0 0 0 0-2.65l-1.47-1.47a1.88 1.88 0 0 0-2.65 0Z" /></svg></div>
                     <h3>Мистецтво</h3>
                 </div>
                 <div class="asset-item">
-                    <div class="asset-icon-wrapper">
-                        <svg class="asset-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
-                        </svg>
-                    </div>
+                    <div class="asset-icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" /></svg></div>
                     <h3>Відновлювана енергія</h3>
                 </div>
                 <div class="asset-item">
-                    <div class="asset-icon-wrapper">
-                         <svg class="asset-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z" />
-                        </svg>
-                    </div>
+                    <div class="asset-icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z" /></svg></div>
                     <h3>Інфраструктура</h3>
                 </div>
                 <div class="asset-item">
-                    <div class="asset-icon-wrapper">
-                        <svg class="asset-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                           <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375" />
-                        </svg>
-                    </div>
+                    <div class="asset-icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375" /></svg></div>
                     <h3>Сировина та копалини</h3>
                 </div>
                 <div class="asset-item">
-                    <div class="asset-icon-wrapper">
-                        <svg class="asset-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 18.75 4.5h-15A2.25 2.25 0 0 0 1.5 6.75v10.5A2.25 2.25 0 0 0 3.75 19.5Z" />
-                        </svg>
-                    </div>
+                    <div class="asset-icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 18.75 4.5h-15A2.25 2.25 0 0 0 1.5 6.75v10.5A2.25 2.25 0 0 0 3.75 19.5Z" /></svg></div>
                     <h3>Приватний борг</h3>
                 </div>
                 <div class="asset-item">
-                    <div class="asset-icon-wrapper">
-                        <svg class="asset-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                           <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z" />
-                        </svg>
-                    </div>
+                    <div class="asset-icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z" /></svg></div>
                     <h3>Інтелектуальна власність</h3>
                 </div>
                 <div class="asset-item">
-                    <div class="asset-icon-wrapper">
-                         <svg class="asset-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                           <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c1.356 0 2.657-.223 3.868-.635a9.006 9.006 0 0 0 4.848-4.848c.413-1.211.635-2.512.635-3.868 0-1.356-.223-2.657-.635-3.868a9.006 9.006 0 0 0-4.848-4.848C14.657 3.223 13.356 3 12 3c-1.356 0-2.657.223-3.868.635a9.006 9.006 0 0 0-4.848 4.848C3.223 9.343 3 10.644 3 12c0 1.356.223 2.657.635 3.868a9.006 9.006 0 0 0 4.848 4.848A9.004 9.004 0 0 0 12 21Z" />
-                        </svg>
-                    </div>
+                    <div class="asset-icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c1.356 0 2.657-.223 3.868-.635a9.006 9.006 0 0 0 4.848-4.848c.413-1.211.635-2.512.635-3.868 0-1.356-.223-2.657-.635-3.868a9.006 9.006 0 0 0-4.848-4.848C14.657 3.223 13.356 3 12 3c-1.356 0-2.657.223-3.868.635a9.006 9.006 0 0 0-4.848 4.848C3.223 9.343 3 10.644 3 12c0 1.356.223 2.657.635 3.868a9.006 9.006 0 0 0 4.848 4.848A9.004 9.004 0 0 0 12 21Z" /></svg></div>
                     <h3>Вуглецеві кредити</h3>
                 </div>
             </div>
@@ -540,7 +612,7 @@
     <section class="mission" id="mission">
         <div class="container">
             <h2>Наше бачення: Партнерство, а не просто послуга</h2>
-            <p class="section-subtitle">Ми створили Tokenize, тому що зіткнулися з тією ж проблемою, що й ви: токенізація — це надзвичайно потужний, але дорогий і складний інструмент. Наша місія — демократизувати доступ до глобального капіталу.</p>
+            <p class="section-subtitle">Ми створили TokenSnap, тому що зіткнулися з тією ж проблемою, що й ви: токенізація — це надзвичайно потужний, але дорогий і складний інструмент. Наша місія — демократизувати доступ до глобального капіталу.</p>
             <div class="grid-2">
                 <div class="mission-item">
                     <h3>Нульовий фінансовий ризик для вас</h3>
@@ -636,7 +708,7 @@
                         </div>
 
                         <div class="slide">
-                           <div class="slide-content">
+                            <div class="slide-content">
                                 <span class="case-category">Відновлювана енергія</span>
                                 <h3>Solar Future Fund</h3>
                                 <p>Завдання: Профінансувати будівництво сонячної електростанції, залучивши "зелених" інвесторів з усього світу.</p>
@@ -682,17 +754,9 @@
                     </div>
                 </div>
                 <div class="slider-controls">
-                    <button class="slider-btn" id="prevBtn">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="24" height="24">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-                        </svg>
-                    </button>
+                    <button class="slider-btn" id="prevBtn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="24" height="24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" /></svg></button>
                     <div class="slider-dots"></div>
-                    <button class="slider-btn" id="nextBtn">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="24" height="24">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                        </svg>
-                    </button>
+                    <button class="slider-btn" id="nextBtn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="24" height="24"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></button>
                 </div>
             </div>
         </div>
@@ -708,7 +772,7 @@
                         <tr>
                             <th>Функція</th>
                             <th>Традиційний підхід</th>
-                            <th>Tokenize Platform</th>
+                            <th>TokenSnap Platform</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -732,7 +796,7 @@
                             <td>Потрібна власна розробка</td>
                             <td class="check">Включено</td>
                         </tr>
-                         <tr>
+                        <tr>
                             <td class="feature-col">Наша комісія</td>
                             <td>-</td>
                             <td class="check">3% від токенів</td>
@@ -805,7 +869,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h4>Про Tokenize</h4>
+                    <h4>Про TokenSnap</h4>
                     <p>Ми допомагаємо власникам активів залучати капітал, роблячи ринок реальних активів ліквідним, прозорим та доступним.</p>
                 </div>
                 <div class="footer-col">
@@ -828,13 +892,13 @@
                  <div class="footer-col">
                     <h4>Контакти</h4>
                     <ul>
-                        <li><a href="mailto:support@tokenize.com">support@tokenize.com</a></li>
+                        <li><a href="mailto:support@tokensnap.io">support@tokensnap.io</a></li>
                         <li><span>Київ, Україна</span></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                &copy; 2025 Tokenize. Всі права захищено.
+                &copy; 2025 TokenSnap. Всі права захищено.
             </div>
         </div>
     </footer>
@@ -846,53 +910,60 @@
                 <div class="progress-bar-inner"></div>
             </div>
             <section id="screen1" class="quiz-screen active">
-                <h1 class="question-heading">Який актив ви хочете токенізувати?</h1>
+                <h1 class="question-heading">Що саме хочете перетворити на токени?</h1>
                 <div class="options-container">
-                    <button class="option-btn">Нерухомість</button>
-                    <button class="option-btn">Акції компанії</button>
-                    <button class="option-btn">Мистецтво</button>
-                    <button class="option-btn">Сировинні товари</button>
-                    <button class="option-btn">Інше</button>
+                    <button class="option-btn" data-value="Нерухомість (квартира, земля)">Нерухомість (квартира, земля)</button>
+                    <button class="option-btn" data-value="Частка бізнесу (ФОП, ТОВ)">Частка бізнесу (ФОП, ТОВ)</button>
+                    <button class="option-btn" data-value="Товар / сировина (зерно, метал)">Товар / сировина (зерно, метал)</button>
+                    <button class="option-btn" data-value="Авторські права (книга, музика)">Авторські права (книга, музика)</button>
+                    <button class="option-btn" data-value="Інше">Інше</button>
                 </div>
             </section>
             <section id="screen2" class="quiz-screen">
-                <h1 class="question-heading">Оціночна вартість активу?</h1>
+                <h1 class="question-heading">Приблизна вартість об’єкта?</h1>
                 <div class="options-container">
-                    <button class="option-btn">&lt; $100 тис.</button>
-                    <button class="option-btn">$100 - $500 тис.</button>
-                    <button class="option-btn">$500 тис. - $1 млн</button>
-                    <button class="option-btn">$1 - $5 млн</button>
-                    <button class="option-btn">&gt; $5 млн</button>
+                    <button class="option-btn" data-value="< $100 тис.">&lt; $100 тис.</button>
+                    <button class="option-btn" data-value="$100–500 тис.">$100–500 тис.</button>
+                    <button class="option-btn" data-value="$500 тис.–1 млн">$500 тис.–1 млн</button>
+                    <button class="option-btn" data-value="$1–5 млн">$1–5 млн</button>
+                    <button class="option-btn" data-value="> $5 млн">&gt; $5 млн</button>
                 </div>
             </section>
             <section id="screen3" class="quiz-screen">
-                <h1 class="question-heading">Коли вам потрібне фінансування?</h1>
+                <h1 class="question-heading">Головна ціль токенізації?</h1>
                 <div class="options-container">
-                    <button class="option-btn">1 міс</button>
-                    <button class="option-btn">3 міс</button>
-                    <button class="option-btn">6 міс</button>
-                    <button class="option-btn">12+ міс</button>
+                    <button class="option-btn" data-value="Залучити капітал">Залучити капітал</button>
+                    <button class="option-btn" data-value="Продати частку">Продати частку</button>
+                    <button class="option-btn" data-value="Підвищити ліквідність">Підвищити ліквідність</button>
+                    <button class="option-btn" data-value="Інша мета">Інша мета</button>
                 </div>
             </section>
             <section id="screen4" class="quiz-screen">
-                <h1 class="question-heading">Ваш рівень знань блокчейну?</h1>
+                <h1 class="question-heading">Коли вам потрібне фінансування / продаж токенів?</h1>
                 <div class="options-container">
-                    <button class="option-btn">Початківець</button>
-                    <button class="option-btn">Середній</button>
-                    <button class="option-btn">Просунутий</button>
+                    <button class="option-btn" data-value="Протягом 30 днів">Протягом 30 днів</button>
+                    <button class="option-btn" data-value="1–3 міс">1–3 міс</button>
+                    <button class="option-btn" data-value="3–6 міс">3–6 міс</button>
+                    <button class="option-btn" data-value="Пізніше 6 міс">Пізніше 6 міс</button>
                 </div>
             </section>
             <section id="screen5" class="quiz-screen">
                 <h1 class="question-heading">Отримайте ваш безкоштовний AI-план</h1>
                 <form class="form-group" onsubmit="return false;">
-                    <input type="email" class="form-field" placeholder="Ваш e-mail" required>
-                    <input type="password" class="form-field" placeholder="Створіть пароль" required>
+                    <input type="email" id="quiz-email" class="form-field" placeholder="Ваш e-mail" required>
                 </form>
                 <div class="checkbox-container">
                     <input type="checkbox" id="terms" checked>
-                    <label for="terms">Я погоджуюсь з <a href="#">Умовами та положеннями</a></label>
+                    <label for="terms">Я погоджуюсь з <a href="/terms">Умовами та положеннями</a></label>
                 </div>
-                <button id="final-quiz-btn" class="option-btn">Отримати безкоштовну консультацію</button>
+                <button id="final-quiz-btn" class="option-btn">Надіслати AI-план</button>
+            </section>
+            <section id="screen6" class="quiz-screen">
+                <h1 class="question-heading">Чи готові документи на об’єкт?</h1>
+                <div class="options-container">
+                    <button class="option-btn" data-value="Так, усе готово">Так, усе готово</button>
+                    <button class="option-btn" data-value="Потрібна допомога з оформленням">Потрібна допомога з оформленням</button>
+                </div>
             </section>
         </div>
     </div>
@@ -908,7 +979,6 @@
             function closeMenu() {
                 hamburger.classList.remove("active");
                 navMenu.classList.add('closing');
-                
                 navMenu.addEventListener('animationend', () => {
                     navMenu.classList.remove('active', 'closing');
                     body.classList.remove('menu-open');
@@ -936,17 +1006,14 @@
                 const nextButton = document.getElementById('nextBtn');
                 const prevButton = document.getElementById('prevBtn');
                 const dotsNav = document.querySelector('.slider-dots');
-                
                 if (slides.length > 0) {
                     let slideWidth = slides[0].getBoundingClientRect().width;
-                    
                     slides.forEach((slide, index) => {
                         const dot = document.createElement('button');
                         dot.classList.add('dot');
                         if (index === 0) dot.classList.add('active');
                         dotsNav.appendChild(dot);
                     });
-
                     const dots = Array.from(dotsNav.children);
                     let currentIndex = 0;
 
@@ -964,7 +1031,6 @@
                     dots.forEach((dot, index) => {
                          dot.addEventListener('click', () => moveToSlide(index));
                     });
-
                     nextButton.addEventListener('click', () => {
                         let newIndex = currentIndex + 1;
                         if (newIndex >= slides.length) newIndex = 0;
@@ -976,14 +1042,12 @@
                         if (newIndex < 0) newIndex = slides.length - 1;
                         moveToSlide(newIndex);
                     });
-                    
-                    // Adjust slide width on resize
                     const handleResize = () => {
                         slideWidth = slides[0].getBoundingClientRect().width;
-                        track.style.transition = 'none'; // Disable transition during resize
+                        track.style.transition = 'none';
                         track.style.transform = 'translateX(-' + slideWidth * currentIndex + 'px)';
                         setTimeout(() => {
-                            track.style.transition = 'transform 0.5s ease-in-out'; // Re-enable transition
+                            track.style.transition = 'transform 0.5s ease-in-out';
                         }, 50);
                     };
                     
@@ -991,17 +1055,76 @@
                 }
             }
 
-
-            // Quiz Modal
+            // Quiz Modal Logic
             const quizTriggers = document.querySelectorAll('.quiz-trigger');
             const quizModalOverlay = document.querySelector('.quiz-modal-overlay');
             const closeQuizBtn = document.querySelector('.close-quiz-btn');
             const quizScreens = document.querySelectorAll('.quiz-screen');
             const progressBar = document.querySelector('.progress-bar-inner');
             const finalQuizBtn = document.getElementById('final-quiz-btn');
-            let currentScreen = 0;
-            const totalScreens = quizScreens.length;
+            const emailInput = document.getElementById('quiz-email');
 
+            let quizData = {};
+            let currentScreen = 0;
+            const screenNames = ["asset_type", "asset_value", "goal", "deadline", "email_screen", "docs_ready"];
+
+            async function sendQuizData(payload) {
+                // !!! ВАЖЛИВО: Замініть '<ваш-секретний-ключ>' на реальний секретний ключ
+                const SECRET_TOKEN = '<ваш-секретний-ключ>';
+                const endpoint = '/submitQuiz'; // Або повний URL вашої Cloud Function
+
+                try {
+                    const response = await fetch(endpoint, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-Secret': SECRET_TOKEN
+                        },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (response.ok) {
+                        const result = await response.json();
+                        if (result.status === 'ok') {
+                            closeQuiz();
+                            const toast = document.createElement('div');
+                            toast.textContent = 'Дякуємо! Перевірте пошту';
+                            toast.style.position = 'fixed';
+                            toast.style.bottom = '20px';
+                            toast.style.left = '50%';
+                            toast.style.transform = 'translateX(-50%)';
+                            toast.style.backgroundColor = 'var(--success-green)';
+                            toast.style.color = 'white';
+                            toast.style.padding = '10px 20px';
+                            toast.style.borderRadius = '8px';
+                            toast.style.zIndex = '10001';
+                            toast.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
+                            document.body.appendChild(toast);
+                            setTimeout(() => {
+                                document.body.removeChild(toast);
+                            }, 3000);
+                        }
+                    } else {
+                        console.error('Помилка відправки:', response.statusText);
+                        alert('Сталася помилка. Спробуйте, будь ласка, ще раз.');
+                    }
+                } catch (error) {
+                    console.error('Помилка мережі:', error);
+                    alert('Сталася помилка мережі. Перевірте з\'єднання та спробуйте ще раз.');
+                }
+            }
+
+            function collectQuizData() {
+                const urlParams = new URLSearchParams(window.location.search);
+                quizData.email = emailInput.value;
+                quizData.created_at = new Date().toISOString();
+                quizData.user_agent = navigator.userAgent;
+                quizData.utm_source = urlParams.get('utm_source');
+                quizData.utm_medium = urlParams.get('utm_medium');
+                quizData.utm_campaign = urlParams.get('utm_campaign');
+                return sendQuizData(quizData);
+            }
+            
             function openQuiz() {
                 if (navMenu.classList.contains('active')) {
                     closeMenu();
@@ -1015,6 +1138,11 @@
                 if(!navMenu.classList.contains('active')) {
                    body.classList.remove('menu-open');
                 }
+                // Скидання квізу до початкового стану
+                currentScreen = 0;
+                quizData = {};
+                emailInput.value = '';
+                showScreen(0);
             }
 
             quizTriggers.forEach(trigger => {
@@ -1026,6 +1154,7 @@
             });
             
             closeQuizBtn.addEventListener('click', closeQuiz);
+            
             quizModalOverlay.addEventListener('click', (e) => {
                 if (e.target === quizModalOverlay) {
                     closeQuiz();
@@ -1036,7 +1165,8 @@
                 quizScreens.forEach((screen, index) => {
                     screen.classList.toggle('active', index === screenIndex);
                 });
-                const progress = totalScreens > 1 ? ((screenIndex) / (totalScreens - 1)) * 100 : 0;
+                const totalVisibleScreens = 5; // Кількість основних екранів для прогрес-бару
+                const progress = totalVisibleScreens > 1 ? (Math.min(screenIndex, 4) / (totalVisibleScreens-1)) * 100 : 0;
                 progressBar.style.width = `${progress}%`;
                 currentScreen = screenIndex;
             }
@@ -1044,19 +1174,37 @@
             quizScreens.forEach((screen, index) => {
                 const buttons = screen.querySelectorAll('.option-btn');
                 buttons.forEach(button => {
-                    if (button.id !== 'final-quiz-btn') { 
-                         button.addEventListener('click', () => {
-                            if (currentScreen < totalScreens - 1) {
-                                showScreen(currentScreen + 1);
+                    if (button.id !== 'final-quiz-btn') {
+                        button.addEventListener('click', () => {
+                            const screenName = screenNames[currentScreen];
+                            const value = button.dataset.value;
+                            quizData[screenName] = value;
+
+                            if ((screenName === 'deadline' && value === 'Протягом 30 днів') || (screenName === 'goal' && value === 'Залучити капітал')) {
+                                showScreen(5); // Перехід на екран 6 (docs_ready)
+                            } else if (screenName === 'docs_ready') {
+                                 showScreen(4); // Після екрану 6 переходимо на екран 5 (email)
+                            }
+                            else {
+                                let nextScreen = currentScreen + 1;
+                                // Пропускаємо екран 'docs_ready', якщо він не потрібен
+                                if (nextScreen === 5) nextScreen = 4;
+
+                                if (nextScreen < quizScreens.length) {
+                                    showScreen(nextScreen);
+                                }
                             }
                         });
                     }
                 });
             });
 
-            finalQuizBtn.addEventListener('click', () => {
-                alert('Дякуємо! Незабаром ми з вами звʼяжемося.');
-                closeQuiz();
+            finalQuizBtn.addEventListener('click', async () => {
+                if (emailInput.checkValidity()) {
+                   await collectQuizData();
+                } else {
+                    alert('Будь ласка, введіть коректний e-mail.');
+                }
             });
         });
     </script>
