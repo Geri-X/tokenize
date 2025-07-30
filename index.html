@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokenize - Розблокуйте Ринок RWA вартістю $16 трильйонів</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
+
+        :root {
+            --primary-blue: #007BFF;
+            --dark-blue: #0A192F;
+            --accent-purple: #8A2BE2;
+            --text-dark: #242c34;
+            --text-light: #f0f6fc;
+            --background-dark: #020c1b;
+            --background-light: #ffffff;
+            --background-light-2: #f8f9fa;
+            --success-green: #28a745;
+            --warning-red: #dc3545;
+            --neutral-gray: #adb5bd;
+            --border-color: #e9ecef;
+            --highlight-yellow: #FFD700;
+            --font-family: 'Inter', sans-serif;
+        }
+
+        html {
+            box-sizing: border-box;
+            -webkit-text-size-adjust: 100%;
+        }
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+
+        body {
+            font-family: var(--font-family);
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--background-light);
+            overflow-x: hidden;
+            margin: 0;
+        }
+
+        body.menu-open {
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 20px;
+            padding-right: 20px;
+            width: 100%;
+        }
+
+        section {
+            padding-top: 90px;
+            padding-bottom: 90px;
+        }
+
+        h1, h2, h3, h4, p {
+            margin-bottom: 20px;
+            overflow-wrap: break-word; /* FIX: Prevent text overflow globally */
+        }
+        h1, h2, h3, h4 { line-height: 1.2; font-weight: 900; }
+        h1 { font-size: 3.5rem; }
+        h2 { font-size: 2.8rem; text-align: center; margin-bottom: 50px; }
+        h3 { font-size: 1.8rem; margin-bottom: 15px; }
+        h4 { font-size: 1.2rem; margin-bottom: 15px; }
+        p { font-size: 1.1rem; font-weight: 300; line-height: 1.7; }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: -30px auto 50px;
+            font-weight: 300;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--primary-blue);
+            color: var(--text-light);
+            border: none;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 123, 255, 0.4);
+        }
+
+        .btn-hero {
+            background: var(--highlight-yellow);
+            color: var(--text-dark);
+            font-size: 1.2rem;
+            padding: 18px 36px;
+            border-radius: 15px;
+            font-weight: 900;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        .btn-hero:hover {
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.5);
+            transform: translateY(-5px);
+            color: #000;
+        }
+        .btn-hero svg {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s ease;
+        }
+        .btn-hero:hover svg {
+            transform: translateX(5px);
+        }
+
+        /* --- Navigation & Hero --- */
+        .navbar { position: fixed; top: 0; left: 0; width: 100%; background: rgba(2, 12, 27, 0.85); backdrop-filter: blur(10px); z-index: 1000; padding-top: 15px; padding-bottom: 15px; }
+        .navbar .container { display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { color: var(--text-light); font-size: 1.8rem; font-weight: 900; text-decoration: none; z-index: 1006; }
+        .nav-menu { list-style: none; display: flex; gap: 25px; align-items: center; margin: 0; padding: 0; }
+        .nav-item a { color: var(--text-light); text-decoration: none; font-weight: 700; font-size: 0.9rem; transition: color 0.3s ease; }
+        .nav-item a:not(.btn):hover { color: var(--primary-blue); }
+        .nav-item .btn { padding: 10px 20px; font-size: 0.9rem; }
+        .hamburger { display: none; cursor: pointer; z-index: 1005; padding: 10px; margin: -10px;}
+        .bar { display: block; width: 25px; height: 3px; margin: 5px auto; transition: all 0.3s ease-in-out; background-color: var(--text-light); }
+        .hero { background: var(--background-dark); color: var(--text-light); min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; padding: 80px 0; }
+        .hero-content { position: relative; z-index: 1; width: 100%; }
+        .hero h1 { font-size: 4rem; }
+        .hero .sub-headline { font-size: 1.5rem; max-width: 800px; margin: 0 auto 2.5rem; font-weight: 300; opacity: 0.9; }
+        .hero .sub-headline strong { color: var(--highlight-yellow); font-weight: 600; }
+        .hero-actions { display: flex; justify-content: center; gap: 16px; margin-top: 40px; }
+
+        /* --- Quiz Modal --- */
+        .quiz-modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(8px); z-index: 9999; display: none; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease; padding: 10px; }
+        .quiz-modal-overlay.visible { display: flex; opacity: 1; }
+        .quiz-container { background-color: #0F0F10; color: var(--text-light); width: 100%; max-width: 380px; display: flex; flex-direction: column; padding: 20px; border-radius: 12px; position: relative; }
+        .close-quiz-btn { position: absolute; top: 10px; right: 10px; background: none; border: none; color: rgba(255, 255, 255, 0.5); font-size: 28px; cursor: pointer; line-height: 1; }
+        .quiz-screen { display: none; flex-direction: column; width: 100%; }
+        .quiz-screen.active { display: flex; }
+        .progress-bar { width: 100%; height: 4px; background-color: #2E2E33; border-radius: 2px; margin-bottom: 24px; }
+        .progress-bar-inner { height: 100%; background-color: #A374FF; border-radius: 2px; width: 0%; transition: width 0.4s ease; }
+        .question-heading { font-size: 20px; font-weight: 600; color: rgba(255, 255, 255, 0.9); margin: 0 0 24px; text-align: center; overflow-wrap: break-word; }
+        .options-container { display: flex; flex-direction: column; gap: 16px; }
+        .options-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        .option-btn { background-color: #2E2E33; color: rgba(255, 255, 255, 0.8); border: none; padding: 18px; font-size: 18px; font-family: var(--font-family); font-weight: 500; border-radius: 12px; cursor: pointer; width: 100%; text-align: center; transition: transform 120ms ease, background-color 120ms ease; overflow-wrap: break-word; }
+        .option-btn:hover { background-color: #3c3c42; }
+        .option-btn:active { transform: scale(0.98); }
+        .form-group { display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px; }
+        .form-field { background-color: #2E2E33; border: 1px solid transparent; border-radius: 12px; padding: 18px; font-size: 16px; color: #fff; font-family: var(--font-family); width: 100%; }
+        .form-field:focus { outline: none; border-color: #A374FF; }
+        .checkbox-container { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+        .checkbox-container label { font-size: 14px; color: rgba(255, 255, 255, 0.8); }
+        .checkbox-container a { color: #A374FF; text-decoration: none; }
+        .checkbox-container a:hover { text-decoration: underline; }
+
+        /* --- Common Sections Styling --- */
+        .social-proof, .how-it-works, .case-studies { background-color: var(--background-light-2); }
+        .social-proof { padding-top: 60px; padding-bottom: 60px; text-align: center; }
+        .social-proof h3 { font-size: 1.2rem; color: #6c757d; margin-bottom: 30px; font-weight: 400; text-align: center;}
+        .logos { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 50px; }
+        .logos span { font-size: 1.8rem; font-weight: bold; color: #888; transition: all 0.3s ease; filter: grayscale(100%); }
+        .logos span:hover { color: var(--text-dark); filter: grayscale(0%); }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+        .problem, .solution { padding: 30px; border-radius: 10px; }
+        .problem { background: #fff5f5; border-left: 5px solid var(--warning-red); }
+        .solution { background: #f0fff4; border-left: 5px solid var(--success-green); }
+        .problem-solution h3 { margin-top: 0; }
+        .problem-solution ul { list-style: none; padding-left: 0; }
+        .problem-solution li { margin-bottom: 15px; padding-left: 30px; position: relative; }
+        .problem li::before { content: '❌'; position: absolute; left: 0; font-size: 1.2rem; }
+        .solution li::before { content: '✅'; position: absolute; left: 0; font-size: 1.2rem; }
+        .step { text-align: center; padding: 20px; }
+        .step-icon { font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 20px; display: inline-block; background: rgba(0, 123, 255, 0.1); width: 80px; height: 80px; line-height: 80px; border-radius: 50%; }
+        .step h3 { font-size: 1.5rem; }
+        .asset-card { background: var(--background-light); border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: all 0.3s ease; }
+        .asset-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .asset-card-image { height: 200px; background-size: cover; background-position: center; }
+        .asset-card-content { padding: 25px; }
+        .asset-card h3 { font-size: 1.4rem; }
+        .security { background-color: var(--background-dark); color: var(--text-light); }
+        .security h2, .security .section-subtitle { color: var(--text-light); }
+        .security .section-subtitle { opacity: 0.8; }
+        .security-item h3 { color: var(--primary-blue); }
+        .case-study { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: center; background: var(--background-light); padding: 40px; border-radius: 10px; margin-bottom: 40px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .case-study-image { height: 250px; border-radius: 10px; background-size: cover; background-position: center; }
+        .case-study-content h3 { color: var(--primary-blue); }
+        
+        /* --- FIX: Case Study Metrics Overflow --- */
+        .case-study-metrics { display: flex; gap: 30px; margin-top: 20px; flex-wrap: wrap; justify-content: flex-start; }
+        
+        .metric-item { text-align: center; }
+        .metric-item .value { font-size: 2rem; font-weight: bold; color: var(--success-green); }
+        .metric-item .label { font-size: 0.9rem; color: #6c757d; }
+        
+        .pricing-table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 50px auto 0; max-width: 100%; border: 1px solid var(--border-color); border-radius: 10px; }
+        .pricing-table { width: 100%; min-width: 600px; border-collapse: collapse; }
+        .pricing-table th, .pricing-table td { padding: 20px; text-align: center; border-bottom: 1px solid #e9ecef; }
+        .pricing-table tr:last-child td { border-bottom: none; }
+        .pricing-table th { background-color: var(--dark-blue); color: var(--text-light); }
+        .pricing-table tr:nth-child(even) { background-color: #f8f9fa; }
+        .pricing-table .feature-col { text-align: left; font-weight: bold; }
+        .pricing-table .check { color: var(--success-green); font-weight: bold; font-size: 1.5rem; }
+        .pricing-table .cross { color: var(--warning-red); font-weight: bold; font-size: 1.5rem; }
+        .pricing-cta-container { text-align: center; margin-top: 40px; }
+        .pricing-cta-container h3 { margin-bottom: 10px; }
+        
+        .faq-container { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+        .faq-item { border: 1px solid var(--border-color); border-radius: 10px; overflow: hidden; }
+        .faq-item summary { font-size: 1.2rem; font-weight: 700; padding: 20px; cursor: pointer; outline: none; display: flex; justify-content: space-between; align-items: center; transition: background-color 0.2s ease; }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary:after { content: '+'; font-size: 2rem; font-weight: 400; color: var(--primary-blue); transition: transform 0.3s ease; }
+        .faq-item[open] summary { background-color: var(--background-light-2); }
+        .faq-item[open] summary:after { transform: rotate(45deg); }
+        .faq-item .faq-answer { padding: 0 20px 20px; font-size: 1rem; color: #555; }
+        .final-cta { background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-purple) 100%); color: var(--text-light); text-align: center; border-radius: 20px; padding: 60px 40px; }
+        .final-cta h2 { font-size: 3rem; color: var(--text-light); }
+        .final-cta p { max-width: 600px; margin: 0 auto 30px; opacity: 0.9; }
+        .footer { background-color: var(--background-dark); color: var(--neutral-gray); padding: 60px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-col h4 { color: var(--text-light); }
+        .footer-col ul { list-style: none; padding: 0; }
+        .footer-col li { margin-bottom: 10px; }
+        .footer-col a { color: var(--neutral-gray); text-decoration: none; transition: color 0.3s ease; }
+        .footer-col a:hover { color: var(--primary-blue); }
+        .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.9rem; }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) {
+            .hero {
+                padding-bottom: 60px;
+            }
+
+            /* --- FIX: Hamburger Menu Logic --- */
+            .nav-menu {
+                display: none;
+            }
+            .nav-menu.active {
+                display: flex; 
+                position: fixed; 
+                left: 0; 
+                top: 0;
+                height: 100%;
+                width: 100%;
+                flex-direction: column; 
+                background-color: var(--background-dark); 
+                text-align: center; 
+                gap: 0;
+                justify-content: center;
+                padding: 20px;
+                z-index: 1000;
+                animation: fadeIn 0.3s forwards;
+            }
+            .nav-menu.active.closing {
+                animation: fadeOut 0.3s forwards;
+            }
+            @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+            @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-item { padding: 1.5rem 0; width: 100%; border-bottom: 1px solid rgba(255,255,255,0.1); }
+            .nav-item:last-child { border-bottom: none; }
+            
+            .hamburger.active .bar {
+                background-color: var(--text-light);
+            }
+            .hamburger.active .bar:nth-child(2) { opacity: 0; }
+            .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+            .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+            
+            .grid-2 { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            .hero h1 { font-size: 3.2rem; }
+            h2 { font-size: 2.2rem; }
+            .case-study { text-align: center; }
+            .case-study-image { grid-row: 1; margin: 0 auto 30px; width: 100%; max-width: 400px; }
+            .case-study-metrics { justify-content: center; }
+        }
+
+        @media (max-width: 576px) {
+            h1 { font-size: 2.5rem; }
+            .hero h1 { font-size: 2.8rem; }
+            h2 { font-size: 2rem; }
+            section { padding: 60px 0; }
+            .logos { gap: 30px; }
+            .logos span { font-size: 1.5rem; }
+            .final-cta h2 { font-size: 2.5rem; }
+            .btn-hero { font-size: 1rem; padding: 16px 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="nav-logo">Tokenize</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#how-it-works">Як це працює</a></li>
+                <li class="nav-item"><a href="#assets">Активи</a></li>
+                <li class="nav-item"><a href="#security">Безпека</a></li>
+                <li class="nav-item"><a href="#cases">Кейси</a></li>
+                <li class="nav-item"><a href="#pricing">Цінність</a></li>
+                <li class="nav-item"><a href="#faq">FAQ</a></li>
+                <li class="nav-item"><a href="#" class="btn quiz-trigger">Розпочати</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Токенізуйте ваш реальний актив. Безкоштовно.</h1>
+                <p class="sub-headline">Наш AI перетворює ваш актив на цифровий токен з токеномікою експертного рівня. <strong>Жодних комісій. Жодних прихованих платежів.</strong> Ми заробляємо, лише коли заробляєте ви, отримуючи 3% частку у вашому проекті.</p>
+                <div class="hero-actions">
+                    <a href="#" class="btn btn-hero quiz-trigger">
+                        <span>Пройти 1-хвилинний квіз</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="social-proof">
+        <div class="container">
+            <h3>Трансформацію ринку RWA визнають лідери галузі</h3>
+            <div class="logos">
+                <span title="Boston Consulting Group">BCG</span>
+                <span title="Deloitte">Deloitte</span>
+                <span title="McKinsey & Company">McKinsey</span>
+                <span title="Goldman Sachs">Goldman Sachs</span>
+                <span title="Citigroup">Citigroup</span>
+                <span title="BlackRock">BlackRock</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="problem-solution" id="problem">
+        <div class="container">
+            <div class="grid-2">
+                <div class="problem">
+                    <h3>Традиційні Активи. Традиційні Проблеми.</h3>
+                    <ul>
+                        <li>Низька ліквідність активів</li>
+                        <li>Високий поріг входу для інвесторів</li>
+                        <li>Складні та дорогі юридичні процедури</li>
+                        <li>Непрозорість володіння та операцій</li>
+                        <li>Обмежений доступ до глобального капіталу</li>
+                    </ul>
+                </div>
+                <div class="solution">
+                    <h3>Токенізація. Сучасне Рішення.</h3>
+                    <ul>
+                        <li>Миттєва ліквідність на глобальних ринках</li>
+                        <li>Можливість часткового володіння для всіх</li>
+                        <li>Автоматизовані смарт-контракти</li>
+                        <li>Прозорість та незмінність на блокчейні</li>
+                        <li>Доступ до інвесторів з усього світу 24/7</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2>Як це працює? Три прості кроки</h2>
+            <div class="grid-3">
+                <div class="step">
+                    <div class="step-icon">1</div>
+                    <h3>Оцінка та AI-Аналіз</h3>
+                    <p>Надайте інформацію про ваш актив. Наш AI проведе оцінку та розробить оптимальну стратегію токенізації.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">2</div>
+                    <h3>Юридична структура та Створення токенів</h3>
+                    <p>Ми створюємо юридичну оболонку та випускаємо токени, що представляють ваш актив, на безпечному блокчейні.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">3</div>
+                    <h3>Залучення капіталу</h3>
+                    <p>Ваші токени стають доступними для інвесторів на нашій платформі та партнерських біржах, відкриваючи доступ до ліквідності.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="asset-showcase" id="assets">
+        <div class="container">
+            <h2>Активи, які ви можете токенізувати</h2>
+            <div class="grid-3">
+                <div class="asset-card">
+                    <div class="asset-card-image" style="background-image: url('https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=2196&auto=format&fit=crop');"></div>
+                    <div class="asset-card-content">
+                        <h3>Нерухомість</h3>
+                        <p>Токенізуйте житлові комплекси, комерційні будівлі або земельні ділянки, щоб залучити інвестиції.</p>
+                    </div>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-card-image" style="background-image: url('https://images.unsplash.com/photo-1554260570-e9682a72185b?q=80&w=2370&auto=format&fit=crop');"></div>
+                    <div class="asset-card-content">
+                        <h3>Приватний капітал</h3>
+                        <p>Перетворіть частки у вашому стартапі чи приватному бізнесі на ліквідні токени, доступні інвесторам.</p>
+                    </div>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-card-image" style="background-image: url('https://images.unsplash.com/photo-1547891654-e66ed7ebb968?q=80&w=2370&auto=format&fit=crop');"></div>
+                    <div class="asset-card-content">
+                        <h3>Мистецтво та колекціонування</h3>
+                        <p>Зробіть шедеври мистецтва або рідкісні колекційні предмети доступними для спільного володіння.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="security" id="security">
+        <div class="container">
+            <h2>Безпека та Довіра на першому місці</h2>
+            <p class="section-subtitle">Ми використовуємо найкращі у своєму класі технології та юридичні практики для захисту ваших активів та інвесторів.</p>
+            <div class="grid-2">
+                <div class="security-item">
+                    <h3>Технологічна Безпека</h3>
+                    <p>Використання перевірених блокчейнів, аудитовані смарт-контракти та багатофакторна автентифікація для захисту від шахрайства.</p>
+                </div>
+                <div class="security-item">
+                    <h3>Юридична Відповідність</h3>
+                    <p>Співпраця з провідними юридичними фірмами для структурування кожного проєкту відповідно до місцевих та міжнародних норм (KYC/AML).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="case-studies" id="cases">
+        <div class="container">
+            <h2>Приклади успішної токенізації</h2>
+            <div class="case-study">
+                <div class="case-study-image" style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2273&auto=format&fit=crop')"></div>
+                <div class="case-study-content">
+                    <h3>Апарт-готель "Urban Oasis"</h3>
+                    <p>Токенізація готелю в центрі міста дозволила власнику залучити $1.2 млн на реконструкцію, продавши 40% власності сотням дрібних інвесторів.</p>
+                    <div class="case-study-metrics">
+                        <div class="metric-item">
+                            <div class="value">$1.2M</div>
+                            <div class="label">Залучено</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="value">350+</div>
+                            <div class="label">Інвесторів</div>
+                        </div>
+                         <div class="metric-item">
+                            <div class="value">4 тижні</div>
+                            <div class="label">Термін</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2>Прозора цінність без прихованих витрат</h2>
+            <p class="section-subtitle">Ми не стягуємо плату за налаштування чи консультації. Наша модель проста: ми заробляємо, коли ви досягаєте успіху.</p>
+            <div class="pricing-table-wrapper">
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>Функція</th>
+                            <th>Традиційний підхід</th>
+                            <th>Tokenize Platform</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="feature-col">Початкові витрати</td>
+                            <td>$50k - $250k+</td>
+                            <td class="check">$0</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-col">Юридичний супровід</td>
+                            <td>Високі погодинні ставки</td>
+                            <td class="check">Включено</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-col">Розробка смарт-контрактів</td>
+                            <td>Дорого та довго</td>
+                            <td class="check">Включено</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-col">Платформа для інвесторів</td>
+                            <td>Потрібна власна розробка</td>
+                            <td class="check">Включено</td>
+                        </tr>
+                         <tr>
+                            <td class="feature-col">Наша комісія</td>
+                            <td>-</td>
+                            <td class="check">3% від токенів</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="pricing-cta-container">
+                <h3>Готові побачити, як це працює для вас?</h3>
+                <a href="#" class="btn quiz-trigger">Пройти квіз та отримати план</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2>Часті запитання</h2>
+            <div class="faq-container">
+                <details class="faq-item">
+                    <summary>Що таке токенізація реальних активів (RWA)?</summary>
+                    <div class="faq-answer">
+                        <p>Це процес перетворення прав на реальний актив (наприклад, нерухомість, акції, мистецтво) у цифровий токен на блокчейні. Це робить актив більш ліквідним, доступним для широкого кола інвесторів та прозорим.</p>
+                    </div>
+                </details>
+                <details class="faq-item" open>
+                    <summary>Чому ваша послуга безкоштовна? У чому підступ?</summary>
+                    <div class="faq-answer">
+                        <p>Підступу немає. Ми використовуємо бізнес-модель "успіх-за-успіхом". Ми не беремо грошей за процес токенізації. Наша винагорода — це 3% від токенів вашого проєкту. Таким чином, ми фінансово зацікавлені у вашому успіху.</p>
+                    </div>
+                </details>
+                 <details class="faq-item">
+                    <summary>Які активи я можу токенізувати?</summary>
+                    <div class="faq-answer">
+                        <p>Ви можете токенізувати широкий спектр активів: нерухомість, частки в бізнесі, витвори мистецтва, предмети розкоші та багато іншого. Пройдіть наш квіз, щоб дізнатися, чи підходить ваш актив.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>Скільки часу займає процес токенізації?</summary>
+                    <div class="faq-answer">
+                        <p>Завдяки нашому AI-агенту, початковий етап займає лічені дні. Повний процес, включаючи юридичне оформлення, може тривати від кількох тижнів до кількох місяців, залежно від складності активу.</p>
+                    </div>
+                </details>
+                 <details class="faq-item">
+                    <summary>Чи потрібні мені технічні знання в блокчейні?</summary>
+                    <div class="faq-answer">
+                        <p>Абсолютно ні. Наша платформа створена для власників активів. Ми беремо на себе всю технічну складність.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>Як мені почати?</summary>
+                    <div class="faq-answer">
+                        <p>Найкращий спосіб почати — це пройти наш швидкий 1-хвилинний квіз. Це допоможе нам зрозуміти ваші потреби, а вам — отримати персоналізований план дій.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+             <div class="final-cta">
+                <h2>Готові розблокувати вартість ваших активів?</h2>
+                <p>Пройдіть наш квіз за 60 секунд, щоб миттєво дізнатися про ваш потенціал токенізації та отримати безкоштовний план дій.</p>
+                <a href="#" class="btn btn-hero quiz-trigger">Дізнатися свій потенціал</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Про Tokenize</h4>
+                    <p>Ми допомагаємо власникам активів залучати капітал, роблячи ринок реальних активів ліквідним, прозорим та доступним.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Навігація</h4>
+                    <ul>
+                        <li><a href="#how-it-works">Як це працює</a></li>
+                        <li><a href="#assets">Активи</a></li>
+                        <li><a href="#security">Безпека</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Юридична інформація</h4>
+                    <ul>
+                        <li><a href="#">Політика конфіденційності</a></li>
+                        <li><a href="#">Умови використання</a></li>
+                        <li><a href="#">Відмова від відповідальності</a></li>
+                    </ul>
+                </div>
+                 <div class="footer-col">
+                    <h4>Контакти</h4>
+                    <ul>
+                        <li><a href="mailto:support@tokenize.com">support@tokenize.com</a></li>
+                        <li><span>Київ, Україна</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2025 Tokenize. Всі права захищено.
+            </div>
+        </div>
+    </footer>
+
+    <div class="quiz-modal-overlay">
+        <div class="quiz-container">
+            <button class="close-quiz-btn">&times;</button>
+            <div class="progress-bar">
+                <div class="progress-bar-inner"></div>
+            </div>
+            <section id="screen1" class="quiz-screen active">
+                <h1 class="question-heading">Який актив ви хочете токенізувати?</h1>
+                <div class="options-container">
+                    <button class="option-btn">Нерухомість</button>
+                    <button class="option-btn">Акції компанії</button>
+                    <button class="option-btn">Мистецтво</button>
+                    <button class="option-btn">Сировинні товари</button>
+                    <button class="option-btn">Інше</button>
+                </div>
+            </section>
+            <section id="screen2" class="quiz-screen">
+                <h1 class="question-heading">Оціночна вартість активу?</h1>
+                <div class="options-container">
+                    <button class="option-btn">&lt; $100 тис.</button>
+                    <button class="option-btn">$100 - $500 тис.</button>
+                    <button class="option-btn">$500 тис. - $1 млн</button>
+                    <button class="option-btn">$1 - $5 млн</button>
+                    <button class="option-btn">&gt; $5 млн</button>
+                </div>
+            </section>
+            <section id="screen3" class="quiz-screen">
+                <h1 class="question-heading">Коли вам потрібне фінансування?</h1>
+                <div class="options-container">
+                    <button class="option-btn">1 міс</button>
+                    <button class="option-btn">3 міс</button>
+                    <button class="option-btn">6 міс</button>
+                    <button class="option-btn">12+ міс</button>
+                </div>
+            </section>
+            <section id="screen4" class="quiz-screen">
+                <h1 class="question-heading">Ваш рівень знань блокчейну?</h1>
+                <div class="options-container">
+                    <button class="option-btn">Початківець</button>
+                    <button class="option-btn">Середній</button>
+                    <button class="option-btn">Просунутий</button>
+                </div>
+            </section>
+            <section id="screen5" class="quiz-screen">
+                <h1 class="question-heading">Отримайте ваш безкоштовний AI-план</h1>
+                <form class="form-group" onsubmit="return false;">
+                    <input type="email" class="form-field" placeholder="Ваш e-mail" required>
+                    <input type="password" class="form-field" placeholder="Створіть пароль" required>
+                </form>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="terms" checked>
+                    <label for="terms">Я погоджуюсь з <a href="#">Умовами та положеннями</a></label>
+                </div>
+                <button id="final-quiz-btn" class="option-btn">Отримати безкоштовну консультацію</button>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector(".hamburger");
+            const navMenu = document.querySelector(".nav-menu");
+            const navLinks = navMenu.querySelectorAll('a');
+            const body = document.body;
+
+            function closeMenu() {
+                hamburger.classList.remove("active");
+                navMenu.classList.add('closing');
+                
+                navMenu.addEventListener('animationend', () => {
+                    navMenu.classList.remove('active', 'closing');
+                    body.classList.remove('menu-open');
+                }, { once: true });
+            }
+
+            hamburger.addEventListener("click", (e) => {
+                e.stopPropagation();
+                if (navMenu.classList.contains('active')) {
+                    closeMenu();
+                } else {
+                    body.classList.add('menu-open');
+                    hamburger.classList.add("active");
+                    navMenu.classList.add("active");
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+
+            const quizTriggers = document.querySelectorAll('.quiz-trigger');
+            const quizModalOverlay = document.querySelector('.quiz-modal-overlay');
+            const closeQuizBtn = document.querySelector('.close-quiz-btn');
+            
+            const screens = document.querySelectorAll('.quiz-screen');
+            const progressBar = document.querySelector('.progress-bar-inner');
+            const finalQuizBtn = document.getElementById('final-quiz-btn');
+            let currentScreen = 0;
+            const totalScreens = screens.length;
+
+            function openQuiz() {
+                if (navMenu.classList.contains('active')) {
+                    closeMenu();
+                }
+                quizModalOverlay.classList.add('visible');
+                body.classList.add('menu-open');
+            }
+
+            function closeQuiz() {
+                quizModalOverlay.classList.remove('visible');
+                if(!navMenu.classList.contains('active')) {
+                   body.classList.remove('menu-open');
+                }
+            }
+
+            quizTriggers.forEach(trigger => {
+                trigger.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    openQuiz();
+                });
+            });
+            
+            closeQuizBtn.addEventListener('click', closeQuiz);
+            quizModalOverlay.addEventListener('click', (e) => {
+                if (e.target === quizModalOverlay) {
+                    closeQuiz();
+                }
+            });
+
+            function showScreen(screenIndex) {
+                screens.forEach((screen, index) => {
+                    screen.classList.toggle('active', index === screenIndex);
+                });
+                const progress = totalScreens > 1 ? ((screenIndex) / (totalScreens - 1)) * 100 : 0;
+                progressBar.style.width = `${progress}%`;
+                currentScreen = screenIndex;
+            }
+            
+            screens.forEach((screen, index) => {
+                const buttons = screen.querySelectorAll('.option-btn');
+                buttons.forEach(button => {
+                    if (button.id !== 'final-quiz-btn') { 
+                         button.addEventListener('click', () => {
+                            if (currentScreen < totalScreens - 1) {
+                                showScreen(currentScreen + 1);
+                            }
+                        });
+                    }
+                });
+            });
+
+            finalQuizBtn.addEventListener('click', () => {
+                alert('Дякуємо! Незабаром ми з вами звʼяжемося.');
+                closeQuiz();
+            });
+        });
+    </script>
+</body>
+</html>
