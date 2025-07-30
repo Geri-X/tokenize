@@ -60,12 +60,12 @@
         }
 
         h1, h2, h3, h4, p {
-            margin-bottom: 20px;
-            overflow-wrap: break-word; /* FIX: Prevent text overflow globally */
+            margin: 0 0 20px 0;
+            overflow-wrap: break-word; /* Prevent text overflow globally */
         }
         h1, h2, h3, h4 { line-height: 1.2; font-weight: 900; }
         h1 { font-size: 3.5rem; }
-        h2 { font-size: 2.8rem; text-align: center; margin-bottom: 50px; }
+        h2 { font-size: 2.8rem; text-align: center; }
         h3 { font-size: 1.8rem; margin-bottom: 15px; }
         h4 { font-size: 1.2rem; margin-bottom: 15px; }
         p { font-size: 1.1rem; font-weight: 300; line-height: 1.7; }
@@ -166,14 +166,14 @@
         .checkbox-container a:hover { text-decoration: underline; }
 
         /* --- Common Sections Styling --- */
-        .social-proof, .how-it-works, .case-studies { background-color: var(--background-light-2); }
+        .social-proof, .how-it-works, .cases-slider { background-color: var(--background-light-2); }
         .social-proof { padding-top: 60px; padding-bottom: 60px; text-align: center; }
         .social-proof h3 { font-size: 1.2rem; color: #6c757d; margin-bottom: 30px; font-weight: 400; text-align: center;}
         .logos { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 50px; }
         .logos span { font-size: 1.8rem; font-weight: bold; color: #888; transition: all 0.3s ease; filter: grayscale(100%); }
         .logos span:hover { color: var(--text-dark); filter: grayscale(0%); }
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
         .problem, .solution { padding: 30px; border-radius: 10px; }
         .problem { background: #fff5f5; border-left: 5px solid var(--warning-red); }
         .solution { background: #f0fff4; border-left: 5px solid var(--success-green); }
@@ -185,25 +185,42 @@
         .step { text-align: center; padding: 20px; }
         .step-icon { font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 20px; display: inline-block; background: rgba(0, 123, 255, 0.1); width: 80px; height: 80px; line-height: 80px; border-radius: 50%; }
         .step h3 { font-size: 1.5rem; }
-        .asset-card { background: var(--background-light); border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: all 0.3s ease; }
-        .asset-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-        .asset-card-image { height: 200px; background-size: cover; background-position: center; }
-        .asset-card-content { padding: 25px; }
-        .asset-card h3 { font-size: 1.4rem; }
-        .security { background-color: var(--background-dark); color: var(--text-light); }
-        .security h2, .security .section-subtitle { color: var(--text-light); }
-        .security .section-subtitle { opacity: 0.8; }
-        .security-item h3 { color: var(--primary-blue); }
-        .case-study { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: center; background: var(--background-light); padding: 40px; border-radius: 10px; margin-bottom: 40px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .case-study-image { height: 250px; border-radius: 10px; background-size: cover; background-position: center; }
-        .case-study-content h3 { color: var(--primary-blue); }
         
-        /* --- FIX: Case Study Metrics Overflow --- */
-        .case-study-metrics { display: flex; gap: 30px; margin-top: 20px; flex-wrap: wrap; justify-content: flex-start; }
+        .asset-showcase { background-color: var(--background-light); }
+        .asset-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+        .asset-item { background-color: var(--background-light-2); border: 1px solid var(--border-color); border-radius: 16px; padding: 30px 20px; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .asset-item:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08); }
+        .asset-icon-wrapper { margin: 0 auto 20px; height: 70px; width: 70px; background-color: rgba(0, 123, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background-color 0.3s ease; }
+        .asset-item:hover .asset-icon-wrapper { background-color: var(--primary-blue); }
+        .asset-icon-wrapper svg { width: 36px; height: 36px; color: var(--primary-blue); transition: color 0.3s ease; }
+        .asset-item:hover .asset-icon-wrapper svg { color: var(--text-light); }
+        .asset-item h3 { font-size: 1.25rem; font-weight: 700; margin: 0; }
         
-        .metric-item { text-align: center; }
-        .metric-item .value { font-size: 2rem; font-weight: bold; color: var(--success-green); }
-        .metric-item .label { font-size: 0.9rem; color: #6c757d; }
+        .mission { background-color: var(--dark-blue); color: var(--text-light); }
+        .mission h2, .mission .section-subtitle { color: var(--text-light); }
+        .mission .section-subtitle { opacity: 0.9; }
+        .mission-item h3 { color: var(--highlight-yellow); font-size: 1.5rem; }
+        .mission-item p { color: var(--neutral-gray); }
+        .mission-item { border-left: 3px solid var(--primary-blue); padding-left: 25px; }
+
+        /* --- FIX: New Case Study Slider Section --- */
+        .slider-wrapper { position: relative; }
+        .slider-container { overflow: hidden; }
+        .slider-track { display: flex; transition: transform 0.5s ease-in-out; }
+        .slide { flex: 0 0 100%; padding: 10px; }
+        .slide-content { background: var(--background-light); padding: 40px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); display: flex; flex-direction: column; height: 100%; }
+        .slide-content h3 { color: var(--primary-blue); font-size: 1.7rem; margin-top: 0; }
+        .slide-content .case-category { font-weight: 700; color: var(--neutral-gray); margin-bottom: 20px; display: block; }
+        .slide-metrics { border-top: 1px solid var(--border-color); margin-top: auto; padding-top: 20px; display: flex; gap: 20px; flex-wrap: wrap; justify-content: flex-start; }
+        .slide-metric-item { text-align: left; }
+        .slide-metric-item .value { font-size: 1.8rem; font-weight: bold; color: var(--success-green); }
+        .slide-metric-item .label { font-size: 0.9rem; color: #6c757d; }
+        .slider-controls { text-align: center; margin-top: 40px; display: flex; gap: 15px; justify-content: center; align-items: center; }
+        .slider-btn { background: none; border: 1px solid var(--neutral-gray); color: var(--neutral-gray); height: 50px; width: 50px; border-radius: 50%; cursor: pointer; transition: all 0.3s ease; }
+        .slider-btn:hover { background-color: var(--primary-blue); border-color: var(--primary-blue); color: var(--text-light); }
+        .slider-dots { display: flex; gap: 10px; }
+        .dot { height: 12px; width: 12px; background-color: var(--border-color); border-radius: 50%; cursor: pointer; transition: background-color 0.3s ease; }
+        .dot.active { background-color: var(--primary-blue); }
         
         .pricing-table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 50px auto 0; max-width: 100%; border: 1px solid var(--border-color); border-radius: 10px; }
         .pricing-table { width: 100%; min-width: 600px; border-collapse: collapse; }
@@ -239,50 +256,19 @@
 
         /* --- Responsive Design --- */
         @media (max-width: 992px) {
-            .hero {
-                padding-bottom: 60px;
-            }
-
-            /* --- FIX: Hamburger Menu Logic --- */
-            .nav-menu {
-                display: none;
-            }
-            .nav-menu.active {
-                display: flex; 
-                position: fixed; 
-                left: 0; 
-                top: 0;
-                height: 100%;
-                width: 100%;
-                flex-direction: column; 
-                background-color: var(--background-dark); 
-                text-align: center; 
-                gap: 0;
-                justify-content: center;
-                padding: 20px;
-                z-index: 1000;
-                animation: fadeIn 0.3s forwards;
-            }
-            .nav-menu.active.closing {
-                animation: fadeOut 0.3s forwards;
-            }
+            .hero { padding-bottom: 60px; }
+            .nav-menu { display: none; }
+            .nav-menu.active { display: flex; position: fixed; left: 0; top: 0; height: 100%; width: 100%; flex-direction: column; background-color: var(--background-dark); text-align: center; gap: 0; justify-content: center; padding: 20px; z-index: 1000; animation: fadeIn 0.3s forwards; }
+            .nav-menu.active.closing { animation: fadeOut 0.3s forwards; }
             @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
             @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
-
-            .hamburger {
-                display: block;
-            }
-            
+            .hamburger { display: block; }
             .nav-item { padding: 1.5rem 0; width: 100%; border-bottom: 1px solid rgba(255,255,255,0.1); }
             .nav-item:last-child { border-bottom: none; }
-            
-            .hamburger.active .bar {
-                background-color: var(--text-light);
-            }
+            .hamburger.active .bar { background-color: var(--text-light); }
             .hamburger.active .bar:nth-child(2) { opacity: 0; }
             .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
             .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-            
             .grid-2 { grid-template-columns: 1fr; }
         }
 
@@ -290,20 +276,21 @@
             h1 { font-size: 3rem; }
             .hero h1 { font-size: 3.2rem; }
             h2 { font-size: 2.2rem; }
-            .case-study { text-align: center; }
-            .case-study-image { grid-row: 1; margin: 0 auto 30px; width: 100%; max-width: 400px; }
-            .case-study-metrics { justify-content: center; }
+            .slide-content { padding: 30px 20px; }
+            .slide-metrics { justify-content: center; }
+            .slide-metric-item { text-align: center; }
         }
 
         @media (max-width: 576px) {
             h1 { font-size: 2.5rem; }
             .hero h1 { font-size: 2.8rem; }
             h2 { font-size: 2rem; }
-            section { padding: 60px 0; }
+            section { padding-top: 60px; padding-bottom: 60px; }
             .logos { gap: 30px; }
             .logos span { font-size: 1.5rem; }
             .final-cta h2 { font-size: 2.5rem; }
             .btn-hero { font-size: 1rem; padding: 16px 24px; }
+            .asset-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
         }
     </style>
 </head>
@@ -315,7 +302,7 @@
             <ul class="nav-menu">
                 <li class="nav-item"><a href="#how-it-works">Як це працює</a></li>
                 <li class="nav-item"><a href="#assets">Активи</a></li>
-                <li class="nav-item"><a href="#security">Безпека</a></li>
+                <li class="nav-item"><a href="#mission">Наша місія</a></li>
                 <li class="nav-item"><a href="#cases">Кейси</a></li>
                 <li class="nav-item"><a href="#pricing">Цінність</a></li>
                 <li class="nav-item"><a href="#faq">FAQ</a></li>
@@ -412,72 +399,241 @@
 
     <section class="asset-showcase" id="assets">
         <div class="container">
-            <h2>Активи, які ви можете токенізувати</h2>
-            <div class="grid-3">
-                <div class="asset-card">
-                    <div class="asset-card-image" style="background-image: url('https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=2196&auto=format&fit=crop');"></div>
-                    <div class="asset-card-content">
-                        <h3>Нерухомість</h3>
-                        <p>Токенізуйте житлові комплекси, комерційні будівлі або земельні ділянки, щоб залучити інвестиції.</p>
+            <h2>Безмежні можливості токенізації</h2>
+            <p class="section-subtitle">Перетворіть практично будь-який цінний актив на ліквідний інвестиційний інструмент, доступний усьому світу.</p>
+            <div class="asset-grid">
+                <div class="asset-item">
+                    <div class="asset-icon-wrapper">
+                        <svg class="asset-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+                        </svg>
                     </div>
+                    <h3>Нерухомість</h3>
                 </div>
-                <div class="asset-card">
-                    <div class="asset-card-image" style="background-image: url('https://images.unsplash.com/photo-1554260570-e9682a72185b?q=80&w=2370&auto=format&fit=crop');"></div>
-                    <div class="asset-card-content">
-                        <h3>Приватний капітал</h3>
-                        <p>Перетворіть частки у вашому стартапі чи приватному бізнесі на ліквідні токени, доступні інвесторам.</p>
+                <div class="asset-item">
+                    <div class="asset-icon-wrapper">
+                        <svg class="asset-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h12A2.25 2.25 0 0 0 20.25 14.25V3M3.75 21h16.5M16.5 3.75h.008v.008H16.5V3.75Z" />
+                        </svg>
                     </div>
+                    <h3>Приватний капітал</h3>
                 </div>
-                <div class="asset-card">
-                    <div class="asset-card-image" style="background-image: url('https://images.unsplash.com/photo-1547891654-e66ed7ebb968?q=80&w=2370&auto=format&fit=crop');"></div>
-                    <div class="asset-card-content">
-                        <h3>Мистецтво та колекціонування</h3>
-                        <p>Зробіть шедеври мистецтва або рідкісні колекційні предмети доступними для спільного володіння.</p>
+                <div class="asset-item">
+                    <div class="asset-icon-wrapper">
+                        <svg class="asset-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9.75 14.25 12m0 0 2.25 2.25M14.25 12l2.25-2.25M14.25 12 12 14.25m-2.58-4.82 2.58 2.57m0 0 2.58 2.57m-2.58-2.57-2.58 2.57m2.58-2.57-2.58-2.57m6.42-3.67L12 12l-1.88-1.88a1.88 1.88 0 0 0-2.65 0L6 11.62a1.88 1.88 0 0 0 0 2.65L8.38 16.5a1.88 1.88 0 0 0 2.65 0L12 15.12l1.88 1.88a1.88 1.88 0 0 0 2.65 0L18 14.27a1.88 1.88 0 0 0 0-2.65l-1.47-1.47a1.88 1.88 0 0 0-2.65 0Z" />
+                        </svg>
                     </div>
+                    <h3>Мистецтво</h3>
+                </div>
+                <div class="asset-item">
+                    <div class="asset-icon-wrapper">
+                        <svg class="asset-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+                        </svg>
+                    </div>
+                    <h3>Відновлювана енергія</h3>
+                </div>
+                <div class="asset-item">
+                    <div class="asset-icon-wrapper">
+                         <svg class="asset-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z" />
+                        </svg>
+                    </div>
+                    <h3>Інфраструктура</h3>
+                </div>
+                <div class="asset-item">
+                    <div class="asset-icon-wrapper">
+                        <svg class="asset-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375" />
+                        </svg>
+                    </div>
+                    <h3>Сировина та копалини</h3>
+                </div>
+                <div class="asset-item">
+                    <div class="asset-icon-wrapper">
+                        <svg class="asset-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 18.75 4.5h-15A2.25 2.25 0 0 0 1.5 6.75v10.5A2.25 2.25 0 0 0 3.75 19.5Z" />
+                        </svg>
+                    </div>
+                    <h3>Приватний борг</h3>
+                </div>
+                <div class="asset-item">
+                    <div class="asset-icon-wrapper">
+                        <svg class="asset-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z" />
+                        </svg>
+                    </div>
+                    <h3>Інтелектуальна власність</h3>
+                </div>
+                <div class="asset-item">
+                    <div class="asset-icon-wrapper">
+                         <svg class="asset-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c1.356 0 2.657-.223 3.868-.635a9.006 9.006 0 0 0 4.848-4.848c.413-1.211.635-2.512.635-3.868 0-1.356-.223-2.657-.635-3.868a9.006 9.006 0 0 0-4.848-4.848C14.657 3.223 13.356 3 12 3c-1.356 0-2.657.223-3.868.635a9.006 9.006 0 0 0-4.848 4.848C3.223 9.343 3 10.644 3 12c0 1.356.223 2.657.635 3.868a9.006 9.006 0 0 0 4.848 4.848A9.004 9.004 0 0 0 12 21Z" />
+                        </svg>
+                    </div>
+                    <h3>Вуглецеві кредити</h3>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="security" id="security">
+    <section class="mission" id="mission">
         <div class="container">
-            <h2>Безпека та Довіра на першому місці</h2>
-            <p class="section-subtitle">Ми використовуємо найкращі у своєму класі технології та юридичні практики для захисту ваших активів та інвесторів.</p>
+            <h2>Наше бачення: Партнерство, а не просто послуга</h2>
+            <p class="section-subtitle">Ми створили Tokenize, тому що зіткнулися з тією ж проблемою, що й ви: токенізація — це надзвичайно потужний, але дорогий і складний інструмент. Наша місія — демократизувати доступ до глобального капіталу.</p>
             <div class="grid-2">
-                <div class="security-item">
-                    <h3>Технологічна Безпека</h3>
-                    <p>Використання перевірених блокчейнів, аудитовані смарт-контракти та багатофакторна автентифікація для захисту від шахрайства.</p>
+                <div class="mission-item">
+                    <h3>Нульовий фінансовий ризик для вас</h3>
+                    <p>Традиційна токенізація коштує від $50,000. Ми повністю прибрали цей бар'єр. Ви не платите нічого, доки не отримаєте фінансування. Ми беремо на себе всі початкові витрати, тому що віримо у ваш проєкт.</p>
                 </div>
-                <div class="security-item">
-                    <h3>Юридична Відповідність</h3>
-                    <p>Співпраця з провідними юридичними фірмами для структурування кожного проєкту відповідно до місцевих та міжнародних норм (KYC/AML).</p>
+                <div class="mission-item">
+                    <h3>Повна синхронізація інтересів</h3>
+                    <p>Наша бізнес-модель (3% частка в токенах) означає, що ми зацікавлені не просто у випуску токенів, а у створенні успішного та ліквідного активу. Ваш успіх — це наш єдиний шлях до успіху.</p>
+                </div>
+                 <div class="mission-item">
+                    <h3>Технології як наша інвестиція</h3>
+                    <p>Ми інвестуємо в ваш проєкт нашу передову AI-платформу, аудитовані смарт-контракти та інфраструктуру безпеки. Це наш внесок у спільне партнерство, що гарантує надійність та ефективність вашого токену.</p>
+                </div>
+                 <div class="mission-item">
+                    <h3>Фокус на вашому бізнесі</h3>
+                    <p>Замість того, щоб витрачати місяці та величезні кошти на технічні та юридичні складнощі, ви можете зосередитися на розвитку свого основного бізнесу. Ми візьмемо на себе всю складну роботу з токенізації.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="case-studies" id="cases">
+    <section class="cases-slider" id="cases">
         <div class="container">
-            <h2>Приклади успішної токенізації</h2>
-            <div class="case-study">
-                <div class="case-study-image" style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2273&auto=format&fit=crop')"></div>
-                <div class="case-study-content">
-                    <h3>Апарт-готель "Urban Oasis"</h3>
-                    <p>Токенізація готелю в центрі міста дозволила власнику залучити $1.2 млн на реконструкцію, продавши 40% власності сотням дрібних інвесторів.</p>
-                    <div class="case-study-metrics">
-                        <div class="metric-item">
-                            <div class="value">$1.2M</div>
-                            <div class="label">Залучено</div>
+            <h2>Знайдіть свій успішний кейс токенізації</h2>
+            <div class="slider-wrapper">
+                <div class="slider-container">
+                    <div class="slider-track">
+                        
+                        <div class="slide">
+                            <div class="slide-content">
+                                <span class="case-category">Нерухомість</span>
+                                <h3>Апарт-готель "Urban Oasis"</h3>
+                                <p>Завдання: Швидко залучити капітал для реновації готелю, не вдаючись до банківських кредитів.</p>
+                                <div class="slide-metrics">
+                                    <div class="slide-metric-item">
+                                        <div class="value">$1.2M</div>
+                                        <div class="label">Залучено інвестицій</div>
+                                    </div>
+                                    <div class="slide-metric-item">
+                                        <div class="value">350+</div>
+                                        <div class="label">Інвесторів з 15 країн</div>
+                                    </div>
+                                    <div class="slide-metric-item">
+                                        <div class="value">4 тижні</div>
+                                        <div class="label">Час залучення коштів</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="metric-item">
-                            <div class="value">350+</div>
-                            <div class="label">Інвесторів</div>
+                        
+                        <div class="slide">
+                           <div class="slide-content">
+                                <span class="case-category">Стартап / Приватний капітал</span>
+                                <h3>Innovate Inc.</h3>
+                                <p>Завдання: Залучити посівний раунд, зберігши максимальний контроль над компанією та залучивши глобальну спільноту.</p>
+                                <div class="slide-metrics">
+                                    <div class="slide-metric-item">
+                                        <div class="value">$500K</div>
+                                        <div class="label">Залучено</div>
+                                    </div>
+                                    <div class="slide-metric-item">
+                                        <div class="value">85%</div>
+                                        <div class="label">Збережено власного капіталу</div>
+                                    </div>
+                                    <div class="slide-metric-item">
+                                        <div class="value">72 години</div>
+                                        <div class="label">Час до першої інвестиції</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                         <div class="metric-item">
-                            <div class="value">4 тижні</div>
-                            <div class="label">Термін</div>
+                        
+                        <div class="slide">
+                           <div class="slide-content">
+                                <span class="case-category">Мистецтво та колекціонування</span>
+                                <h3>Vintage Collection</h3>
+                                <p>Завдання: Отримати ліквідність з колекції рідкісних годинників, не продаючи самі годинники.</p>
+                                <div class="slide-metrics">
+                                    <div class="slide-metric-item">
+                                        <div class="value">$250K</div>
+                                        <div class="label">Розблоковано ліквідності</div>
+                                    </div>
+                                    <div class="slide-metric-item">
+                                        <div class="value">50+</div>
+                                        <div class="label">Співвласників колекції</div>
+                                    </div>
+                                     <div class="slide-metric-item">
+                                        <div class="value">$100</div>
+                                        <div class="label">Мінімальна інвестиція</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
+                        <div class="slide">
+                           <div class="slide-content">
+                                <span class="case-category">Відновлювана енергія</span>
+                                <h3>Solar Future Fund</h3>
+                                <p>Завдання: Профінансувати будівництво сонячної електростанції, залучивши "зелених" інвесторів з усього світу.</p>
+                                <div class="slide-metrics">
+                                    <div class="slide-metric-item">
+                                        <div class="value">$2.5M</div>
+                                        <div class="label">Залучено</div>
+                                    </div>
+                                    <div class="slide-metric-item">
+                                        <div class="value">15%</div>
+                                        <div class="label">Прогнозована річна дохідність (IRR)</div>
+                                    </div>
+                                    <div class="slide-metric-item">
+                                        <div class="value">40+</div>
+                                        <div class="label">Країн-учасниць</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide">
+                           <div class="slide-content">
+                                <span class="case-category">Інфраструктура</span>
+                                <h3>Tech Park</h3>
+                                <p>Завдання: Залучити кошти від майбутніх резидентів та локальної спільноти для будівництва інноваційного парку.</p>
+                                <div class="slide-metrics">
+                                    <div class="slide-metric-item">
+                                        <div class="value">$5M</div>
+                                        <div class="label">Залучено від спільноти</div>
+                                    </div>
+                                    <div class="slide-metric-item">
+                                        <div class="value">70%</div>
+                                        <div class="label">Інвесторів — локальні жителі</div>
+                                    </div>
+                                    <div class="slide-metric-item">
+                                        <div class="value">x2</div>
+                                        <div class="label">Прискорення реалізації проєкту</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
+                </div>
+                <div class="slider-controls">
+                    <button class="slider-btn" id="prevBtn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="24" height="24">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                        </svg>
+                    </button>
+                    <div class="slider-dots"></div>
+                    <button class="slider-btn" id="nextBtn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="24" height="24">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                        </svg>
+                    </button>
                 </div>
             </div>
         </div>
@@ -598,7 +754,7 @@
                     <ul>
                         <li><a href="#how-it-works">Як це працює</a></li>
                         <li><a href="#assets">Активи</a></li>
-                        <li><a href="#security">Безпека</a></li>
+                        <li><a href="#mission">Наша місія</a></li>
                         <li><a href="#faq">FAQ</a></li>
                     </ul>
                 </div>
@@ -684,6 +840,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Hamburger Menu
             const hamburger = document.querySelector(".hamburger");
             const navMenu = document.querySelector(".nav-menu");
             const navLinks = navMenu.querySelectorAll('a');
@@ -709,20 +866,77 @@
                     navMenu.classList.add("active");
                 }
             });
-
             navLinks.forEach(link => {
                 link.addEventListener('click', closeMenu);
             });
 
+            // Case Study Slider
+            const track = document.querySelector('.slider-track');
+            const slides = Array.from(track.children);
+            const nextButton = document.getElementById('nextBtn');
+            const prevButton = document.getElementById('prevBtn');
+            const dotsNav = document.querySelector('.slider-dots');
+
+            if (slides.length > 0) {
+                const slideWidth = slides[0].getBoundingClientRect().width;
+                
+                slides.forEach((slide, index) => {
+                    const dot = document.createElement('button');
+                    dot.classList.add('dot');
+                    if (index === 0) dot.classList.add('active');
+                    dotsNav.appendChild(dot);
+
+                    dot.addEventListener('click', () => {
+                        moveToSlide(index);
+                    });
+                });
+
+                const dots = Array.from(dotsNav.children);
+                let currentIndex = 0;
+
+                const updateDots = (targetIndex) => {
+                    dots.forEach(dot => dot.classList.remove('active'));
+                    dots[targetIndex].classList.add('active');
+                };
+
+                const moveToSlide = (targetIndex) => {
+                    track.style.transform = 'translateX(-' + slideWidth * targetIndex + 'px)';
+                    currentIndex = targetIndex;
+                    updateDots(currentIndex);
+                };
+
+                nextButton.addEventListener('click', () => {
+                    let newIndex = currentIndex + 1;
+                    if (newIndex >= slides.length) newIndex = 0;
+                    moveToSlide(newIndex);
+                });
+
+                prevButton.addEventListener('click', () => {
+                    let newIndex = currentIndex - 1;
+                    if (newIndex < 0) newIndex = slides.length - 1;
+                    moveToSlide(newIndex);
+                });
+                
+                // Adjust slide width on resize
+                window.addEventListener('resize', () => {
+                    const newSlideWidth = slides[0].getBoundingClientRect().width;
+                    track.style.transition = 'none'; // Disable transition during resize
+                    track.style.transform = 'translateX(-' + newSlideWidth * currentIndex + 'px)';
+                    setTimeout(() => {
+                        track.style.transition = 'transform 0.5s ease-in-out'; // Re-enable transition
+                    }, 50);
+                });
+            }
+
+            // Quiz Modal
             const quizTriggers = document.querySelectorAll('.quiz-trigger');
             const quizModalOverlay = document.querySelector('.quiz-modal-overlay');
             const closeQuizBtn = document.querySelector('.close-quiz-btn');
-            
-            const screens = document.querySelectorAll('.quiz-screen');
+            const quizScreens = document.querySelectorAll('.quiz-screen');
             const progressBar = document.querySelector('.progress-bar-inner');
             const finalQuizBtn = document.getElementById('final-quiz-btn');
             let currentScreen = 0;
-            const totalScreens = screens.length;
+            const totalScreens = quizScreens.length;
 
             function openQuiz() {
                 if (navMenu.classList.contains('active')) {
@@ -755,7 +969,7 @@
             });
 
             function showScreen(screenIndex) {
-                screens.forEach((screen, index) => {
+                quizScreens.forEach((screen, index) => {
                     screen.classList.toggle('active', index === screenIndex);
                 });
                 const progress = totalScreens > 1 ? ((screenIndex) / (totalScreens - 1)) * 100 : 0;
@@ -763,7 +977,7 @@
                 currentScreen = screenIndex;
             }
             
-            screens.forEach((screen, index) => {
+            quizScreens.forEach((screen, index) => {
                 const buttons = screen.querySelectorAll('.option-btn');
                 buttons.forEach(button => {
                     if (button.id !== 'final-quiz-btn') { 
