@@ -3,8 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tokenize - Розблокуйте Ринок RWA вартістю $16 трильйонів</title>
-    <style>
+    
+    <title>Безкоштовна токенізація активів RWA — залучення капіталу</title>
+    <meta name="description" content="Токенізуйте реальні активи безкоштовно. Наша AI-платформа оцінює бізнес і за секунди генерує смарт-контракт для швидкого залучення інвестицій.">
+    <meta name="keywords" content="токенізація активів, безкоштовна токенізація, токенізація RWA, залучення капіталу, AI платформа, смарт контракт, альтернативне фінансування, tokenize assets">
+
+    <link rel="canonical" href="https://example.com/"> <meta property="og:title" content="Безкоштовна токенізація активів RWA — залучення капіталу">
+    <meta property="og:description" content="Токенізуйте реальні активи безкоштовно з нашою AI-платформою.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://example.com/"> <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
 
         :root {
@@ -137,7 +144,6 @@
         .bar { display: block; width: 25px; height: 3px; margin: 5px auto; transition: all 0.3s ease-in-out; background-color: var(--text-light); }
         .hero { background: var(--background-dark); color: var(--text-light); min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; padding: 80px 0; }
         .hero-content { position: relative; z-index: 1; width: 100%; }
-        .hero h1 { font-size: 4rem; }
         .hero .sub-headline { font-size: 1.5rem; max-width: 800px; margin: 0 auto 2.5rem; font-weight: 300; opacity: 0.9; }
         .hero .sub-headline strong { color: var(--highlight-yellow); font-weight: 600; }
         .hero-actions { display: flex; justify-content: center; gap: 16px; margin-top: 40px; }
@@ -203,7 +209,6 @@
         .mission-item p { color: var(--neutral-gray); }
         .mission-item { border-left: 3px solid var(--primary-blue); padding-left: 25px; }
 
-        /* --- FIX: New Case Study Slider Section --- */
         .slider-wrapper { position: relative; }
         .slider-container { overflow: hidden; }
         .slider-track { display: flex; transition: transform 0.5s ease-in-out; }
@@ -293,6 +298,58 @@
             .asset-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
         }
     </style>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Безкоштовна токенізація активів RWA",
+      "description": "Токенізуйте реальні активи безкоштовно. Наша AI-платформа оцінює бізнес і за секунди генерує смарт-контракт для швидкого залучення інвестицій.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Tokenize"
+      },
+      "serviceType": "Фінансові послуги",
+      "areaServed": {
+        "@type": "Country",
+        "name": "UA"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "UAH"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Що таке токенізація реальних активів (RWA)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Це процес перетворення прав на реальний актив (наприклад, нерухомість, акції, мистецтво) у цифровий токен на блокчейні. Це робить актив більш ліквідним, доступним для широкого кола інвесторів та прозорим."
+        }
+      },{
+        "@type": "Question",
+        "name": "Чому ваша послуга безкоштовна? У чому підступ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Підступу немає. Ми використовуємо бізнес-модель 'успіх-за-успіхом'. Ми не беремо грошей за процес токенізації. Наша винагорода — це 3% від токенів вашого проєкту. Таким чином, ми фінансово зацікавлені у вашому успіху."
+        }
+      },{
+        "@type": "Question",
+        "name": "Які активи я можу токенізувати?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ви можете токенізувати широкий спектр активів: нерухомість, частки в бізнесі, витвори мистецтва, предмети розкоші та багато іншого. Пройдіть наш квіз, щоб дізнатися, чи підходить ваш актив."
+        }
+      }]
+    }
+    </script>
+
 </head>
 <body>
 
@@ -872,61 +929,66 @@
 
             // Case Study Slider
             const track = document.querySelector('.slider-track');
-            const slides = Array.from(track.children);
-            const nextButton = document.getElementById('nextBtn');
-            const prevButton = document.getElementById('prevBtn');
-            const dotsNav = document.querySelector('.slider-dots');
-
-            if (slides.length > 0) {
-                const slideWidth = slides[0].getBoundingClientRect().width;
+            if (track) {
+                const slides = Array.from(track.children);
+                const nextButton = document.getElementById('nextBtn');
+                const prevButton = document.getElementById('prevBtn');
+                const dotsNav = document.querySelector('.slider-dots');
                 
-                slides.forEach((slide, index) => {
-                    const dot = document.createElement('button');
-                    dot.classList.add('dot');
-                    if (index === 0) dot.classList.add('active');
-                    dotsNav.appendChild(dot);
-
-                    dot.addEventListener('click', () => {
-                        moveToSlide(index);
+                if (slides.length > 0) {
+                    let slideWidth = slides[0].getBoundingClientRect().width;
+                    
+                    slides.forEach((slide, index) => {
+                        const dot = document.createElement('button');
+                        dot.classList.add('dot');
+                        if (index === 0) dot.classList.add('active');
+                        dotsNav.appendChild(dot);
                     });
-                });
 
-                const dots = Array.from(dotsNav.children);
-                let currentIndex = 0;
+                    const dots = Array.from(dotsNav.children);
+                    let currentIndex = 0;
 
-                const updateDots = (targetIndex) => {
-                    dots.forEach(dot => dot.classList.remove('active'));
-                    dots[targetIndex].classList.add('active');
-                };
+                    const updateDots = (targetIndex) => {
+                        dots.forEach(dot => dot.classList.remove('active'));
+                        dots[targetIndex].classList.add('active');
+                    };
 
-                const moveToSlide = (targetIndex) => {
-                    track.style.transform = 'translateX(-' + slideWidth * targetIndex + 'px)';
-                    currentIndex = targetIndex;
-                    updateDots(currentIndex);
-                };
+                    const moveToSlide = (targetIndex) => {
+                        track.style.transform = 'translateX(-' + slideWidth * targetIndex + 'px)';
+                        currentIndex = targetIndex;
+                        updateDots(currentIndex);
+                    };
+                    
+                    dots.forEach((dot, index) => {
+                         dot.addEventListener('click', () => moveToSlide(index));
+                    });
 
-                nextButton.addEventListener('click', () => {
-                    let newIndex = currentIndex + 1;
-                    if (newIndex >= slides.length) newIndex = 0;
-                    moveToSlide(newIndex);
-                });
+                    nextButton.addEventListener('click', () => {
+                        let newIndex = currentIndex + 1;
+                        if (newIndex >= slides.length) newIndex = 0;
+                        moveToSlide(newIndex);
+                    });
 
-                prevButton.addEventListener('click', () => {
-                    let newIndex = currentIndex - 1;
-                    if (newIndex < 0) newIndex = slides.length - 1;
-                    moveToSlide(newIndex);
-                });
-                
-                // Adjust slide width on resize
-                window.addEventListener('resize', () => {
-                    const newSlideWidth = slides[0].getBoundingClientRect().width;
-                    track.style.transition = 'none'; // Disable transition during resize
-                    track.style.transform = 'translateX(-' + newSlideWidth * currentIndex + 'px)';
-                    setTimeout(() => {
-                        track.style.transition = 'transform 0.5s ease-in-out'; // Re-enable transition
-                    }, 50);
-                });
+                    prevButton.addEventListener('click', () => {
+                        let newIndex = currentIndex - 1;
+                        if (newIndex < 0) newIndex = slides.length - 1;
+                        moveToSlide(newIndex);
+                    });
+                    
+                    // Adjust slide width on resize
+                    const handleResize = () => {
+                        slideWidth = slides[0].getBoundingClientRect().width;
+                        track.style.transition = 'none'; // Disable transition during resize
+                        track.style.transform = 'translateX(-' + slideWidth * currentIndex + 'px)';
+                        setTimeout(() => {
+                            track.style.transition = 'transform 0.5s ease-in-out'; // Re-enable transition
+                        }, 50);
+                    };
+                    
+                    window.addEventListener('resize', handleResize);
+                }
             }
+
 
             // Quiz Modal
             const quizTriggers = document.querySelectorAll('.quiz-trigger');
